@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,6 +77,13 @@ $protype = new Protype();
                             <li><a href="trungtambaohanh.php">Bảo Hành</a></li>
                             <li><a href="lienhe.php">Liên Hệ</a></li>
                             <li><a href="cart.php">Giỏ Hàng</a></li>
+                            <?php
+                                if(!isset($_SESSION['user'])){
+                                    echo '<li><a href="Login\login.php">Đăng nhập</a></li>';
+                                }else{
+                                    echo'<li><a href="models\logout.php">Đăng xuất</a></li>';
+                                }
+                            ?>
                         </ul>
 
                     </div>

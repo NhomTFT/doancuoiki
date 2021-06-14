@@ -13,13 +13,14 @@
 	<div class="hero">
 		<div class="form-box">
 			<div class="form-login">
-				<h4>LOGIN</h4>
+				<h4>ĐĂNG NHẬP</h4>
 			</div>
 			<form id="login" class="form-input" action="check_login.php" method="get">
 				<input type="text" name="username" class="input-field" placeholder="Username" required>
 				<input type="password" name="password" class="input-field" placeholder="Enter password" required>
-				<button type="submit" class="submit-btn">Login</button>
-				<button class="submit-btn"><a href="signup.php">Sign up</a></button>
+				<button type="submit" class="submit-btn">OK</button>
+				<button class="submit-btn"><a href="signup.php">ĐĂNG KÍ</a></button>
+				<button class="submit-btn"><a href="/doancuoiki/index.php">Quay lại</a></button>
 			</form>
 		</div>
 	</div>
