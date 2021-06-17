@@ -57,7 +57,7 @@
 <body>
     <div class="header-bottom">
         <!--header-bottom-->
-        <div class="container-fluid" style="margin-bottom:5px;">
+        <div class="container-fluid" style="margin-bottom:-20px; ">
             <div class="row">
                 <div class="col-md-12">
                     <div class="navbar-header">
@@ -106,7 +106,7 @@
             </div>
         </div>
     </div>
-    <div>
+    <div class="container-fluid">
     <img src="img/banners/blackFriday.gif" alt="" style="width: 100%; height:150px ;">
     </div>
 
@@ -117,7 +117,7 @@
     </header>
     <!--/header-->
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-3">
                     <div class="left-sidebar">

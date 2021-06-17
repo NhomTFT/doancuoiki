@@ -64,7 +64,7 @@
 <body>
     <!--Header-part-->
     <div id="header">
-        <h1><a href="http://localhost:8888/dienthoai/"><img src="images/logo.png" alt=""></a></h1>
+        <h1><a href="/doancuoiki/admin/index.php"><img src="images/logo.png" alt=""></a></h1>
     </div>
     <!--close-Header-part-->
     <!--top-Header-menu-->
@@ -79,6 +79,7 @@
                     <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
                     <li class="divider"></li>
                     <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
+                    
                 </ul>
             </li>
             <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages"

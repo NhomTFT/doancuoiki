@@ -102,7 +102,7 @@ $protype = new Protype();
     </header>
     <!--/header-->
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-3">
                     <div class="left-sidebar">
@@ -153,7 +153,7 @@ $protype = new Protype();
                                     }
                                 }
                             } else {
-                                echo "Features Items";
+                                echo "1Features Items";
                             }
                             ?>
                         </h2>
