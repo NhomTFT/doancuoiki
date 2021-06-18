@@ -153,7 +153,7 @@ $protype = new Protype();
                                     }
                                 }
                             } else {
-                                echo "1Features Items";
+                                echo "Features Items";
                             }
                             ?>
                         </h2>
@@ -265,6 +265,7 @@ $protype = new Protype();
                                 </div>
                         <?php  }
                         } ?>
+                        
 
 </body>
 

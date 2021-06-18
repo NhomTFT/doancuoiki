@@ -49,7 +49,7 @@
 <body>
     <!--Header-part-->
     <div id="header">
-        <h1><a href="http://localhost:8888/dienthoai/"><img src="images/logo.png" alt=""></a></h1>
+        <h1><a href="http://localhost:dienthoai/"><img src="images/logo.png" alt=""></a></h1>
     </div>
     <!--close-Header-part-->
     <!--top-Header-menu-->

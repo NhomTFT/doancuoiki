@@ -18,9 +18,10 @@
 			<form id="login" class="form-input" action="check_login.php" method="get">
 				<input type="text" name="username" class="input-field" placeholder="Username" required>
 				<input type="password" name="password" class="input-field" placeholder="Enter password" required>
-				<button type="submit" class="submit-btn">OK</button>
-				<button class="submit-btn"><a href="signup.php">ĐĂNG KÍ</a></button>
-				<button class="submit-btn"><a href="/doancuoiki/index.php">Quay lại</a></button>
+				
+				<button  class="btn-success submit-btn" style="float:left;"><a href="signup.php">ĐĂNG KÍ</a></button>
+				<button  class="submit-btn btn-success" style="float:right;"><a href="/doancuoiki/index.php">Quay lại</a></button>
+				<button type="submit" class="submit-btn btn-success" style="float:none;">OK</button>
 			</form>
 		</div>
 	</div>
