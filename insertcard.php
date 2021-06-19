@@ -23,5 +23,4 @@
 				$_SESSION['cart'][$id] = $prod;	
 			}				
 		}	
-		header('location:cart.php');		
-?>
+		header('location:cart.php');

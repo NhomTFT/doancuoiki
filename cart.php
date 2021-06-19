@@ -1,8 +1,9 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,24 +31,23 @@
 </head>
 <!--/head-->
 <?php
-    require "models/db.php";
-    require "models/product.php";
-    require "models/protype.php";
-    require "models/manufacture.php";
-    $product = new Product();
-    $manufacture = new Manufacture();
-    $protype = new Protype();
+require "models/db.php";
+require "models/product.php";
+require "models/protype.php";
+require "models/manufacture.php";
+$product = new Product();
+$manufacture = new Manufacture();
+$protype = new Protype();
 ?>
+
 <body>
-<div class="header-bottom">
+    <div class="header-bottom">
         <!--header-bottom-->
-        <div class="container-fluid" style="margin-bottom:5px;">
+        <div class="container-fluid" style="margin-bottom:-20px; ">
             <div class="row">
                 <div class="col-md-12">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span
-                                class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                         </button>
                         <div class="logo"> <a href="index.php"><img src="images/logo.png" alt="" /></a> </div>
                     </div>
@@ -55,20 +55,21 @@
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li><a href="index.php" class="active">Trang Chủ</a></li>
                             <li class="dropdown"><a href="index.php">Sản Phẩm<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">                                    
-                                    <?php                                      
-                                        $prodarr = $protype->getAllProtype();
-                                        foreach ($prodarr as $key) {  
-                                            if(isset($_GET['manu_id']))
-                                            {
-                                                $manu_id = $_GET['manu_id'];
-                                        ?>
-                                            <li><a href="cate.php?manu_id=<?php echo $manu_id ?>&type_id=<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></a><li>
-                                     <?php } 
-                                            else {                                               
+                                <ul role="menu" class="sub-menu">
+                                    <?php
+                                    $prodarr = $protype->getAllProtype();
+                                    foreach ($prodarr as $key) {
+                                        if (isset($_GET['manu_id'])) {
+                                            $manu_id = $_GET['manu_id'];
                                     ?>
-                                            <li><a href="cate.php?type_id=<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></a><li>
-                                <?php } } ?>                                                             
+                                            <li><a href="cate.php?manu_id=<?php echo $manu_id ?>&type_id=<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></a>
+                                            <li>
+                                            <?php } else {
+                                            ?>
+                                            <li><a href="cate.php?type_id=<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></a>
+                                            <li>
+                                        <?php }
+                                    } ?>
                                 </ul>
                             </li>
                             <li><a href="tintuc.php">Tin Tức</a></li>
@@ -77,21 +78,21 @@
                             <li><a href="lienhe.php">Liên Hệ</a></li>
                             <li><a href="cart.php">Giỏ Hàng</a></li>
                             <?php
-                                if(!isset($_SESSION['user'])){
-                                    echo '<li><a href="Login\login.php">Đăng nhập</a></li>';
-                                }else{
-                                    echo'<li><a href="models\logout.php">Đăng xuất</a></li>';
-                                }
+                            if (!isset($_SESSION['user'])) {
+                                echo '<li><a href="Login\login.php">Đăng nhập</a></li>';
+                            } else {
+                                echo '<li><a href="models\logout.php">Đăng xuất</a></li>';
+                            }
                             ?>
                         </ul>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div>
-    <img src="img/banners/blackFriday.gif" alt="" style="width: 100%; height:150px ;">
+        <img src="img/banners/blackFriday.gif" alt="" style="width: 100%; height:150px ;">
     </div>
     <!--/header-bottom-->
     </header>
@@ -112,58 +113,56 @@
                                 <td></td>
                             </tr>
                         </thead>
-                        <tbody>         
-                            <?php                       
-                                $total=0;         
-                                if(isset($_SESSION['cart'])) {
-                                    foreach ($_SESSION['cart'] as $key) {       
-                                    $sum = $key['price'] * $key['qty'];                                                        
+                        <tbody>
+                            <?php
+                            $total = 0;
+                            if (isset($_SESSION['cart'])) {
+                                foreach ($_SESSION['cart'] as $key) {
+                                    $sum = $key['price'] * $key['qty'];
                             ?>
-                                        <tr>
-                                            <td class="cart_product">
-                                                <a href=""><img src="admin/images/<?php echo $key['pro_image']?>" alt=""
-                                                        width=110></a>
-                                            </td>
-                                            <td class="cart_description">
-                                                <h4><a href="detail.php?id=<?php echo $key['id']?>"><?php echo $key['name'] ?></a></h4>
-                                            </td>
-                                            <td class="cart_price">
-                                                <p><?php echo number_format($key['price'],0)?></p>
-                                            </td>
-                                            <td class="cart_quantity">
-                                                <div class="cart_quantity_button">
-                                                    <a class="cart_quantity_up" href="insertcard.php?id=<?php echo $key['id'] ?>"> + </a>
-                                                    <input class="cart_quantity_input" type="text" name="quantity" value="<?php echo $key['qty']?>"
-                                                        autocomplete="off" size="2">
-                                                    <a class="cart_quantity_down" href="insertcard.php?id=<?php echo $key['id']?>&action=tru"> - </a>
-                                                </div>
-                                            </td>
-                                            <td class="cart_total">
-                                                <p class="cart_total_price"><?php echo number_format($sum,0) . "₫" ?></p>
-                                            </td>
-                                            <td class="cart_delete">
-                                                <a class="cart_quantity_delete" href="del.php?id=<?php echo $key['id']?>"><i
-                                                        class="fa fa-times"></i></a>
-                                            </td>
-                                        </tr>
-                            <?php $total += $sum; } } ?>
-                                <tr>
-                                    <td class="cart_product">
-                                    </td>
-                                    <td class="cart_description">
-                                    </td>
-                                    <td class="cart_price">
-                                    </td>
-                                    <td class="cart_quantity">
-                                    </td>
-                                    <td class="cart_total">
-                                        <p class="cart_total_price">Total : <?php echo number_format($total) . "₫"?></p>
-                                    </td> 
-                                </tr>                                                                   
+                                    <tr>
+                                        <td class="cart_product">
+                                            <a href=""><img src="admin/images/<?php echo $key['pro_image'] ?>" alt="" width=110></a>
+                                        </td>
+                                        <td class="cart_description">
+                                            <h4><a href="detail.php?id=<?php echo $key['id'] ?>"><?php echo $key['name'] ?></a></h4>
+                                        </td>
+                                        <td class="cart_price">
+                                            <p><?php echo number_format($key['price'], 0) ?></p>
+                                        </td>
+                                        <td class="cart_quantity">
+                                            <div class="cart_quantity_button">
+                                                <a class="cart_quantity_up" href="insertcard.php?id=<?php echo $key['id'] ?>"> + </a>
+                                                <input class="cart_quantity_input" type="text" name="quantity" value="<?php echo $key['qty'] ?>" autocomplete="off" size="2">
+                                                <a class="cart_quantity_down" href="insertcard.php?id=<?php echo $key['id'] ?>&action=tru"> - </a>
+                                            </div>
+                                        </td>
+                                        <td class="cart_total">
+                                            <p class="cart_total_price"><?php echo number_format($sum, 0) . "₫" ?></p>
+                                        </td>
+                                        <td class="cart_delete">
+                                            <a class="cart_quantity_delete" href="del.php?id=<?php echo $key['id'] ?>"><i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                            <?php $total += $sum;
+                                }
+                            } ?>
+                            <tr>
+                                <td class="cart_product">
+                                </td>
+                                <td class="cart_description">
+                                </td>
+                                <td class="cart_price">
+                                </td>
+                                <td class="cart_quantity">
+                                </td>
+                                <td class="cart_total">
+                                    <p class="cart_total_price">Total : <?php echo number_format($total) . "₫" ?></p>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post"
-                        action="order.php">
+                    <form id="main-contact-form" class="contact-form row" name="contact-form" method="post" action="order.php">
                         <div class="form-group col-md-6">
                             <input type="text" name="name" class="form-control" placeholder="Name" required>
                         </div>
@@ -174,12 +173,10 @@
                             <input type="text" name="phonenumber" class="form-control" placeholder="Phone number" required>
                         </div>
                         <div class="form-group col-md-12">
-                            <textarea name="message" id="message" class="form-control" rows="3"
-                                placeholder="Your Message Here"></textarea>
+                            <textarea name="message" id="message" class="form-control" rows="3" placeholder="Your Message Here"></textarea>
                         </div>
                         <div class="form-group col-md-12">
-                            <input name="address" id="address" class="form-control" rows="3"
-                                placeholder="Your Address"></input>
+                            <input name="address" id="address" class="form-control" rows="3" placeholder="Your Address"></input>
                         </div>
                         <div class="form-group col-md-12">
                             <a class="btn btn-default update" href="index.php">Tiếp Tục Mua Hàng</a>
@@ -203,8 +200,7 @@
             <div class="container">
                 <div class="row">
                     <p class="pull-left">MOBILE SHOPPING © 2021 HCMUE.</p>
-                    <p class="pull-right">Designed by <span><a target="_blank"
-                                href="http://www.themeum.com">HCMUE</a></span></p>
+                    <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">HCMUE</a></span></p>
                 </div>
             </div>
         </div>

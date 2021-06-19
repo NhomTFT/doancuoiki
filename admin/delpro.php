@@ -63,5 +63,4 @@
         $order->delteteOrderByOrderId($order_id);
         $orderdetail->delteteOrderdetailByOrderId($order_id);
         header('location:check_order.php');
-    }   
-?>
+    }

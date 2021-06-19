@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +43,7 @@ $protype = new Protype();
 <body>
     <div class="header-bottom">
         <!--header-bottom-->
-        <div class="container-fluid" style="margin-bottom:5px;">
+        <div class="container-fluid" style="margin-bottom:-20px; ">
             <div class="row">
                 <div class="col-md-12">
                     <div class="navbar-header">
@@ -78,11 +78,11 @@ $protype = new Protype();
                             <li><a href="lienhe.php">Liên Hệ</a></li>
                             <li><a href="cart.php">Giỏ Hàng</a></li>
                             <?php
-                                if(!isset($_SESSION['user'])){
-                                    echo '<li><a href="Login\login.php">Đăng nhập</a></li>';
-                                }else{
-                                    echo'<li><a href="models\logout.php">Đăng xuất</a></li>';
-                                }
+                            if (!isset($_SESSION['user'])) {
+                                echo '<li><a href="Login\login.php">Đăng nhập</a></li>';
+                            } else {
+                                echo '<li><a href="models\logout.php">Đăng xuất</a></li>';
+                            }
                             ?>
                         </ul>
 
@@ -96,7 +96,13 @@ $protype = new Protype();
     </div>
 
     <!-- tìm kiếm -->
-
+    <div class="search_box pull-right">
+        <table class="table-bordered">
+            <form action="result.php" method="get">
+                <input type="text" placeholder="Tìm Kiếm" name="key" style="margin-right:20px;width:250px ;height:40px;" />
+            </form>
+        </table>
+    </div>
 
     <!--/header-bottom-->
     </header>
@@ -265,7 +271,7 @@ $protype = new Protype();
                                 </div>
                         <?php  }
                         } ?>
-                        
+
 
 </body>
 

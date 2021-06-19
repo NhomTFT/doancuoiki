@@ -1,41 +1,39 @@
 <?php
-    require "models/db.php";
-    require "models/product.php";
-    require "models/protype.php";
-    require "models/manufacture.php";
-    require "models/page.php";
-    require "models/orders.php";
-    if(isset($_GET['key']))
-    {
-        $key = $_GET['key'];
-    }
-    $order = new Order();
-    $ordercount = $order->CountOrder();
-    $soluong = $ordercount['total'];
-    $product = new Product();
-    $manufacture = new Manufacture();
-    $protype = new Protype();
-    //   
-    $perpage = 6; // hiển thị 6 sản phẩm trên 1 trang
-    $pages = $product->getTotalOfProductByFacName($key);
-    $total = $pages['total'];
-    if(isset($_GET['current_page'])) {
-        $current_page = $_GET['current_page'];
-    }
-    else {
-        $current_page = 1;
-    } // Lấy số trang trên thanh địa chỉ
-     // Tính tổng số dòng, ví dụ kết quả là 18
-    $offset = 2;
-    $url = $_SERVER['PHP_SELF']; 
-    //
-    $page = new Page($url,$current_page,$perpage,$total,$offset);   
+require "models/db.php";
+require "models/product.php";
+require "models/protype.php";
+require "models/manufacture.php";
+require "models/page.php";
+require "models/orders.php";
+if (isset($_GET['key'])) {
+    $key = $_GET['key'];
+}
+$order = new Order();
+$ordercount = $order->CountOrder();
+$soluong = $ordercount['total'];
+$product = new Product();
+$manufacture = new Manufacture();
+$protype = new Protype();
+//   
+$perpage = 6; // hiển thị 6 sản phẩm trên 1 trang
+$pages = $product->getTotalOfProductByFacName($key);
+$total = $pages['total'];
+if (isset($_GET['current_page'])) {
+    $current_page = $_GET['current_page'];
+} else {
+    $current_page = 1;
+} // Lấy số trang trên thanh địa chỉ
+// Tính tổng số dòng, ví dụ kết quả là 18
+$offset = 2;
+$url = $_SERVER['PHP_SELF'];
+//
+$page = new Page($url, $current_page, $perpage, $total, $offset);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="css/styles.css">
 
-<head>    
+<head>
     <title>Mobile Admin</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -68,15 +66,13 @@
 <body>
     <!--Header-part-->
     <div id="header">
-        <h1><a href="http://localhost:8888/dienthoai/"><img src="images/logo.png" alt=""></a></h1>
+        <h1><a href="/doancuoiki/admin/index.php"><img src="images/logo.png" alt=""></a></h1>
     </div>
     <!--close-Header-part-->
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
-            <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown"
-                    data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span
-                        class="text">Welcome Super Admin</span><b class="caret"></b></a>
+            <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text">Welcome Super Admin</span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -85,9 +81,7 @@
                     <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
             </li>
-            <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages"
-                    class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span
-                        class="label label-important"><?php echo $soluong ?></span> <b class="caret"></b></a>
+            <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important"><?php echo $soluong ?></span> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> new message</a></li>
                     <li class="divider"></li>
@@ -99,8 +93,7 @@
                 </ul>
             </li>
             <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-            <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span 
-                        class="text">Logout</span></a></li>
+            <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
         </ul>
     </div>
     <!--start-top-serch-->
@@ -123,8 +116,7 @@
     </div><!-- BEGIN CONTENT -->
     <div id="content">
         <div id="content-header">
-            <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom current"><i
-                        class="icon-home"></i> Home</a></div>
+            <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom current"><i class="icon-home"></i> Home</a></div>
             <h1>Search Result</h1>
         </div>
         <div class="container-fluid">
@@ -153,31 +145,30 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $prod = $product->findProductByFactureName($current_page,$perpage,$key);
-                                    foreach ($prod as $key) {                                                                   
-                                    ?>                      
+                                    $prod = $product->findProductByFactureName($current_page, $perpage, $key);
+                                    foreach ($prod as $key) {
+                                    ?>
                                         <tr class="">
-                                            <td width="250"><img
-                                                src="images/<?php echo $key['pro_image'] ?>" />
+                                            <td width="250"><img src="images/<?php echo $key['pro_image'] ?>" />
                                             </td>
                                             <td><?php echo $key['name'] ?></td>
-                                            <td><?php echo $key['manu_name']?></td>
-                                            <td><?php echo $key['type_name']?></td>
-                                            <td><?php echo substr($key['description'],0,100) ?></td>
-                                            <td><?php echo number_format($key['price'],0) . " đ" ?></td>
+                                            <td><?php echo $key['manu_name'] ?></td>
+                                            <td><?php echo $key['type_name'] ?></td>
+                                            <td><?php echo substr($key['description'], 0, 100) ?></td>
+                                            <td><?php echo number_format($key['price'], 0) . " đ" ?></td>
                                             <td><?php echo $key['feature'] ?></td>
                                             <td><?php echo $key['created_at'] ?></td>
                                             <td>
-                                                <a href="edit_product.php?id=<?php echo $key['id']?>" class="btn btn-success btn-mini">Edit</a>
+                                                <a href="edit_product.php?id=<?php echo $key['id'] ?>" class="btn btn-success btn-mini">Edit</a>
                                                 <a href="delpro.php?id=<?php echo $key['id'] ?>" class="btn btn-danger btn-mini">Delete</a>
                                             </td>
-                                        </tr>  
-                                    <?php } ?>                                  
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                             <div class="paginate">
-                                <?php                
-                                echo $page->paginateresult($url, $total, $current_page, $perpage,$offset); 
+                                <?php
+                                echo $page->paginateresult($url, $total, $current_page, $perpage, $offset);
                                 ?>
                             </div>
                         </div>

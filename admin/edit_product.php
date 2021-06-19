@@ -34,43 +34,40 @@
 
 <body>
     <?php
-        require "models/db.php";
-        require "models/product.php";
-        require "models/protype.php";
-        require "models/manufacture.php";
-        require "models/page.php"; 
-        require "models/orders.php";
-        $order = new Order();
-        $ordercount = $order->CountOrder();
-        $soluong = $ordercount['total'];
-        $product = new Product();
-        $protype = new Protype();
-        $manufacture = new Manufacture();       
-        if(isset($_GET['id']))
-        {
-            $id = $_GET['id'];
-            $prodarr = $product->getProductCartById($id);
-            $name = $prodarr['name'];
-            $manu_name = $prodarr['manu_name'];
-            $type_name = $prodarr['type_name'];
-            $pro_image = $prodarr['pro_image'];
-            $created_at = $prodarr['created_at'];
-            $description = $prodarr['description'];
-            $price = $prodarr['price'];
-            $feature = $prodarr['feature'];
-        } 
+    require "models/db.php";
+    require "models/product.php";
+    require "models/protype.php";
+    require "models/manufacture.php";
+    require "models/page.php";
+    require "models/orders.php";
+    $order = new Order();
+    $ordercount = $order->CountOrder();
+    $soluong = $ordercount['total'];
+    $product = new Product();
+    $protype = new Protype();
+    $manufacture = new Manufacture();
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $prodarr = $product->getProductCartById($id);
+        $name = $prodarr['name'];
+        $manu_name = $prodarr['manu_name'];
+        $type_name = $prodarr['type_name'];
+        $pro_image = $prodarr['pro_image'];
+        $created_at = $prodarr['created_at'];
+        $description = $prodarr['description'];
+        $price = $prodarr['price'];
+        $feature = $prodarr['feature'];
+    }
     ?>
     <!--Header-part-->
     <div id="header">
-        <h1><a href="http://localhost:8888/dienthoai/"><img src="images/logo.png" alt=""></a></h1>
+        <h1><a href="/doancuoiki/admin/index.php"><img src="images/logo.png" alt=""></a></h1>
     </div>
     <!--close-Header-part-->
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
-            <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown"
-                    data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span
-                        class="text">Welcome Super Admin</span><b class="caret"></b></a>
+            <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text">Welcome Super Admin</span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -79,9 +76,7 @@
                     <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
             </li>
-            <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages"
-                    class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span
-                        class="label label-important"><?php echo $soluong ?></span> <b class="caret"></b></a>
+            <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important"><?php echo $soluong ?></span> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> new message</a></li>
                     <li class="divider"></li>
@@ -93,8 +88,7 @@
                 </ul>
             </li>
             <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-            <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span
-                        class="text">Logout</span></a></li>
+            <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
         </ul>
     </div>
     <!--start-top-serch-->
@@ -132,8 +126,7 @@
                         <div class="widget-content nopadding">
 
                             <!-- BEGIN USER FORM -->
-                            <form action="check/check_edit.php" method="post" class="form-horizontal"
-                                enctype="multipart/form-data">
+                            <form action="check/check_edit.php" method="post" class="form-horizontal" enctype="multipart/form-data">
                                 <div class="control-group">
                                     <label class="control-label">Name :</label>
                                     <div class="controls">
@@ -147,13 +140,14 @@
                                             <?php
                                             $manuarr = $manufacture->getAllFactureName();
                                             foreach ($manuarr as $key) {
-                                            if ($key['manu_name'] == $prodarr['manu_name']) {
+                                                if ($key['manu_name'] == $prodarr['manu_name']) {
                                             ?>
-                                            <option value="<?php echo $key['manu_id'] ?>" selected><?php echo $key['manu_name'] ?></option>
-                                            <?php } else {
-                                            ?>
-                                            <option value="<?php echo $key['manu_id'] ?>"><?php echo $key['manu_name'] ?></option>
-                                           <?php } } ?>                                            
+                                                    <option value="<?php echo $key['manu_id'] ?>" selected><?php echo $key['manu_name'] ?></option>
+                                                <?php } else {
+                                                ?>
+                                                    <option value="<?php echo $key['manu_id'] ?>"><?php echo $key['manu_name'] ?></option>
+                                            <?php }
+                                            } ?>
                                         </select> *
                                     </div>
                                 </div>
@@ -164,13 +158,14 @@
                                             <?php
                                             $typearr = $protype->getAllProtype();
                                             foreach ($typearr as $key) {
-                                            if ($key['type_name'] == $prodarr['type_name']) {
+                                                if ($key['type_name'] == $prodarr['type_name']) {
                                             ?>
-                                            <option value="<?php echo $key['type_id'] ?>" selected><?php echo $key['type_name'] ?></option>
-                                            <?php } else {
-                                            ?>
-                                            <option value="<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></option>
-                                           <?php } } ?>                                            
+                                                    <option value="<?php echo $key['type_id'] ?>" selected><?php echo $key['type_name'] ?></option>
+                                                <?php } else {
+                                                ?>
+                                                    <option value="<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></option>
+                                            <?php }
+                                            } ?>
                                         </select> *
                                     </div>
                                     <div class="control-group">
@@ -183,8 +178,7 @@
                                     <div class="control-group">
                                         <label class="control-label">Description</label>
                                         <div class="controls">
-                                            <textarea class="span11" placeholder="Description"
-                                                name="description"><?php echo $description ?></textarea>
+                                            <textarea class="span11" placeholder="Description" name="description"><?php echo $description ?></textarea>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label">Price :</label>
@@ -205,7 +199,7 @@
                                             </div>
                                         </div>
                                         <div class="form-actions">
-                                            <input type="hidden" name="id" value="<?php echo $id?>">
+                                            <input type="hidden" name="id" value="<?php echo $id ?>">
                                             <input type="hidden" name="action" value="product">
                                             <button type="submit" class="btn btn-success">Edit</button>
                                         </div>
@@ -234,17 +228,17 @@
     <script src="js/matrix.tables.js"></script>
     <script type="text/javascript">
         function readURL(input) {
-          if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-              $('#image').attr('src', e.target.result);
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
             }
-            reader.readAsDataURL(input.files[0]);
-          }
         }
         //
         $("#fileUpload").change(function() {
-          readURL(this);
+            readURL(this);
         });
     </script>
 </body>

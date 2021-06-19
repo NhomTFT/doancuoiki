@@ -2,15 +2,14 @@
 <html lang="en">
 
 <head>
-<?php
+    <?php
     require "models/db.php";
     require "models/orderdetail.php";
     $orderdetail = new Orderdetail();
-    if(isset($_GET['order_id']))
-    {
-    	$order_id = $_GET['order_id'];
+    if (isset($_GET['order_id'])) {
+        $order_id = $_GET['order_id'];
     }
-?>
+    ?>
     <title>Mobile Admin</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,15 +43,13 @@
 <body>
     <!--Header-part-->
     <div id="header">
-        <h1><a href="http://localhost:8888/dienthoai/"><img src="images/logo.png" alt=""></a></h1>
+        <h1><a href="/doancuoiki/admin/index.php"><img src="images/logo.png" alt=""></a></h1>
     </div>
     <!--close-Header-part-->
     <!--top-Header-menu-->
     <div id="user-nav" class="navbar navbar-inverse">
         <ul class="nav">
-            <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown"
-                    data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span
-                        class="text">Welcome Super Admin</span><b class="caret"></b></a>
+            <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text">Welcome Super Admin</span><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
                     <li class="divider"></li>
@@ -61,13 +58,11 @@
                     <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
                 </ul>
             </li>
-            <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages"
-                    class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span
-                        class="label label-important">5</span> <b class="caret"></b></a>
+            <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> new message</a></li>
                     <li class="divider"></li>
-                    <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i> inbox</a></li>
+                    <li><a class="sInbox" title="" href="check_order.php"><i class="icon-envelope"></i> inbox</a></li>
                     <li class="divider"></li>
                     <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i> outbox</a></li>
                     <li class="divider"></li>
@@ -75,8 +70,7 @@
                 </ul>
             </li>
             <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-            <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span
-                        class="text">Logout</span></a></li>
+            <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
         </ul>
     </div>
     <!--start-top-serch-->
@@ -97,8 +91,7 @@
     </div><!-- BEGIN CONTENT -->
     <div id="content">
         <div id="content-header">
-            <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom current"><i
-                        class="icon-home"></i> Home</a></div>
+            <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom current"><i class="icon-home"></i> Home</a></div>
             <h1>Manage Cart</h1>
         </div>
         <div class="container-fluid">
@@ -121,35 +114,36 @@
                                         <th>Total</th>
                                     </tr>
                                 </thead>
-                                <tbody>    
-	                                <?php
-	                                    $orderdetailarr = $orderdetail->getOrderdetailByOrderId($order_id);
-	                                    $total=0; 
-	                                    foreach ($orderdetailarr as $key) {
-	                                    $sum = $key['total'];
-	                                ?>                                          
-	                                    <tr>
-                                            <td width="100"><img
-                                                src="images/<?php echo $key['image'] ?>" />
+                                <tbody>
+                                    <?php
+                                    $orderdetailarr = $orderdetail->getOrderdetailByOrderId($order_id);
+                                    $total = 0;
+                                    foreach ($orderdetailarr as $key) {
+                                        $sum = $key['total'];
+                                    ?>
+                                        <tr>
+                                            <td width="100"><img src="images/<?php echo $key['image'] ?>" />
                                             </td>
-	                                        <td><?php echo $key['name'] ?></td>
-	                                        <td><?php echo number_format($key['price'],0) ?></td>
-	                                        <td><?php echo $key['quantity'] ?></td>
-	                                        <td><?php echo number_format($key['total'],0) ?></td>                                       
-	                                    </tr>
-	                                <?php $total += $sum; } ?>
-	                                	<tr>
-	                                		<td></td>
-	                                		<td></td>
-	                                		<td></td>
-	                                		<td></td>
-	                                		<td><b style="font-size: 20px"><?php echo number_format($total,0) . " đ"?></b>
-	                                			<br>
-	                                			<a href="delpro.php?order_id=<?php echo $order_id?>" class="btn btn-success btn-mini" style="font-size: 16px">Process</a></td>
-	                                	</tr>
+                                            <td><?php echo $key['name'] ?></td>
+                                            <td><?php echo number_format($key['price'], 0) ?></td>
+                                            <td><?php echo $key['quantity'] ?></td>
+                                            <td><?php echo number_format($key['total'], 0) ?></td>
+                                        </tr>
+                                    <?php $total += $sum;
+                                    } ?>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><b style="font-size: 20px"><?php echo number_format($total, 0) . " đ" ?></b>
+                                            <br>
+                                            <a href="delpro.php?order_id=<?php echo $order_id ?>" class="btn btn-success btn-mini" style="font-size: 16px">Process</a>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
-                            <div class="row" style="margin-left: 18px;">                                
+                            <div class="row" style="margin-left: 18px;">
                             </div>
                         </div>
                     </div>

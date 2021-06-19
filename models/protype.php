@@ -18,4 +18,3 @@ class Protype extends Db {
             return $items; //return an array
     }
 }
-?>

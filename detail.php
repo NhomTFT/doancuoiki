@@ -27,24 +27,23 @@
 </head>
 <!--/head-->
 <?php
-    require "models/db.php";
-    require "models/product.php";
-    require "models/protype.php";
-    require "models/manufacture.php";
-    $product = new Product();
-    $manufacture = new Manufacture();
-    $protype = new Protype();
+require "models/db.php";
+require "models/product.php";
+require "models/protype.php";
+require "models/manufacture.php";
+$product = new Product();
+$manufacture = new Manufacture();
+$protype = new Protype();
 ?>
+
 <body>
     <div class="header-bottom">
         <!--header-bottom-->
-        <div class="container">
+        <div class="container-fluid" style="margin-bottom:-20px; ">
             <div class="row">
                 <div class="col-md-12">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span
-                                class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                         </button>
                         <div class="logo"> <a href="index.php"><img src="images/logo.png" alt="" /></a> </div>
                     </div>
@@ -53,19 +52,20 @@
                             <li><a href="cate.php" class="active">Home</a></li>
                             <li class="dropdown"><a href="index.php">Products<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <?php                                      
-                                        $prodarr = $protype->getAllProtype();
-                                        foreach ($prodarr as $key) {  
-                                            if(isset($_GET['manu_id']))
-                                            {
-                                                $manu_id = $_GET['manu_id'];
-                                        ?>
-                                            <li><a href="cate.php?manu_id=<?php echo $manu_id ?>&type_id=<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></a><li>
-                                     <?php } 
-                                            else {                                               
+                                    <?php
+                                    $prodarr = $protype->getAllProtype();
+                                    foreach ($prodarr as $key) {
+                                        if (isset($_GET['manu_id'])) {
+                                            $manu_id = $_GET['manu_id'];
                                     ?>
-                                            <li><a href="cate.php?type_id=<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></a><li>
-                                <?php } } ?>
+                                            <li><a href="cate.php?manu_id=<?php echo $manu_id ?>&type_id=<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></a>
+                                            <li>
+                                            <?php } else {
+                                            ?>
+                                            <li><a href="cate.php?type_id=<?php echo $key['type_id'] ?>"><?php echo $key['type_name'] ?></a>
+                                            <li>
+                                        <?php }
+                                    } ?>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
@@ -98,29 +98,27 @@
                         <h2>Category</h2>
                         <div class="panel-group category-products" id="accordian">
                             <!--category-productsr-->
-                            <?php     
-                                $manuarr = $manufacture->getAllFactureName();                                      
-                                foreach($manuarr as $namefac)
-                                {
-                                    if(isset($_GET['type_id']))
-                                    {
-                                        $type_id = $_GET['type_id'];
-                                ?>
+                            <?php
+                            $manuarr = $manufacture->getAllFactureName();
+                            foreach ($manuarr as $namefac) {
+                                if (isset($_GET['type_id'])) {
+                                    $type_id = $_GET['type_id'];
+                            ?>
                                     <!--category-productsr-->
                                     <div class="panel panel-default">
                                         <div class="panel-heading">
-                                            <h4 class="panel-title"><a href="cate.php?manu_id=<?php echo $namefac['manu_id']?>&type_id=<?php echo $type_id ?>"><?php echo $namefac['manu_name']?></a></h4>
+                                            <h4 class="panel-title"><a href="cate.php?manu_id=<?php echo $namefac['manu_id'] ?>&type_id=<?php echo $type_id ?>"><?php echo $namefac['manu_name'] ?></a></h4>
                                         </div>
                                     </div>
-                               <?php } 
-                                    else {
-                               ?>
-                                   <div class="panel panel-default">
-                                            <div class="panel-heading">
-                                                <h4 class="panel-title"><a href="cate.php?manu_id=<?php echo $namefac['manu_id']?>"><?php echo $namefac['manu_name']?></a></h4>
-                                            </div>
+                                <?php } else {
+                                ?>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title"><a href="cate.php?manu_id=<?php echo $namefac['manu_id'] ?>"><?php echo $namefac['manu_name'] ?></a></h4>
                                         </div>
-                          <?php } } ?>
+                                    </div>
+                            <?php }
+                            } ?>
                         </div>
                     </div>
                 </div>
@@ -128,41 +126,41 @@
                     <div class="product-details">
                         <!--product-details-->
                         <form action="insertcard.php" method="get">
-                            <?php 
-                                if(isset($_GET['id']))
-                                {
-                                    $id = $_GET['id'];
-                                    $prodarr = $product->getProductById($id);
-                                    foreach ($prodarr as $key) {
-                                        if($key['id'] == $id)
-                                        {
-                                    ?>
-                                            <div class="col-sm-5">
-                                                <div class="view-product">
+                            <?php
+                            if (isset($_GET['id'])) {
+                                $id = $_GET['id'];
+                                $prodarr = $product->getProductById($id);
+                                foreach ($prodarr as $key) {
+                                    if ($key['id'] == $id) {
+                            ?>
+                                        <div class="col-sm-5">
+                                            <div class="view-product">
 
-                                                    <img src="admin/images/<?php echo $key['pro_image'] ?>" alt=""/>
-                                                </div>
+                                                <img src="admin/images/<?php echo $key['pro_image'] ?>" alt="" />
                                             </div>
-                                            <div class="col-sm-7">
-                                                <div class="product-information">
-                                                    <!--/product-information-->
-                                                    <h2><?php echo $key['name'] ?></h2>
-                                                    <span>
-                                                        <span><?php echo number_format($key['price'],0) . "₫" ?></span>
-                                                        <label>Quantity:</label>
-                                                        <input type="number" name="quantity" min="1" value="1" />
-                                                        <input type="hidden" name="id" value="<?php echo $key['id']?>" />
-                                                        
-                                                        <button type="submit" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                                    </span>
-                                                    <p><b>Availability:</b> In Stock</p>
-                                                    <p><b>Condition:</b> New</p>
-                                                    <p><b>Brand:</b><?php echo  " " . $key['manu_name'] ?></p>
-                                                    <p><b>Description :</b><?php echo  " " . substr($key['description'],0,100). "..."?></p>
-                                                </div>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="product-information">
                                                 <!--/product-information-->
-                                            </div>                                                    
-                            <?php } } } ?>
+                                                <h2><?php echo $key['name'] ?></h2>
+                                                <span>
+                                                    <span><?php echo number_format($key['price'], 0) . "₫" ?></span>
+                                                    <label>Quantity:</label>
+                                                    <input type="number" name="quantity" min="1" value="1" />
+                                                    <input type="hidden" name="id" value="<?php echo $key['id'] ?>" />
+
+                                                    <button type="submit" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                </span>
+                                                <p><b>Availability:</b> In Stock</p>
+                                                <p><b>Condition:</b> New</p>
+                                                <p><b>Brand:</b><?php echo  " " . $key['manu_name'] ?></p>
+                                                <p><b>Description :</b><?php echo  " " . substr($key['description'], 0, 100) . "..." ?></p>
+                                            </div>
+                                            <!--/product-information-->
+                                        </div>
+                            <?php }
+                                }
+                            } ?>
                         </form>
                     </div>
                     <!--/product-details-->
