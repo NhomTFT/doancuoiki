@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 14, 2021 lúc 01:41 PM
+-- Thời gian đã tạo: Th6 19, 2021 lúc 08:59 AM
 -- Phiên bản máy phục vụ: 10.4.18-MariaDB
 -- Phiên bản PHP: 8.0.3
 
@@ -41,7 +41,11 @@ INSERT INTO `manufactures` (`manu_id`, `manu_name`) VALUES
 (2, 'Dell'),
 (3, 'Sony'),
 (4, 'SamSung'),
-(5, 'Anker');
+(11, 'ViVo'),
+(12, 'Oppo'),
+(13, 'Asus'),
+(14, 'Acer'),
+(15, 'Xiaomi');
 
 -- --------------------------------------------------------
 
@@ -64,11 +68,120 @@ CREATE TABLE `orderdetail` (
 --
 
 INSERT INTO `orderdetail` (`id`, `order_id`, `image`, `name`, `price`, `quantity`, `total`) VALUES
-(1, 1, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 3, 30000000),
-(2, 1, 'applewatch3.jpg', 'Apple Watch S5 44mm viền nhôm dây cao su đen', 10000000, 4, 40000000),
-(3, 1, 'cap4.jpg', 'Cáp sạc không dây Apple Watch Magnetic 1 m Apple MX2E2 Trắng', 890000, 3, 2670000),
-(4, 1, 'ss2.png', 'Điện thoại Samsung Galaxy Z Fold2 5G', 50000000, 3, 150000000),
-(12, 3, 'ss1.png', 'Điện thoại Samsung Galaxy Note 20 Ultra', 24990000, 2, 49980000);
+(140, 67, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(141, 67, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(142, 67, 'Oppo Find X3 Pro 5G.jpg', 'Oppo Find X3 Pro 5G', 21910000, 1, 21910000),
+(24, 10, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(25, 10, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(26, 11, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(27, 11, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(28, 12, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(29, 12, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(32, 14, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(33, 14, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(34, 15, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(35, 15, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(36, 16, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(37, 16, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(38, 17, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(39, 17, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(40, 18, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(41, 18, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(42, 19, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(43, 19, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(44, 20, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(45, 20, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(46, 21, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(47, 21, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(48, 22, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(49, 22, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(50, 23, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(51, 23, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(52, 24, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(53, 24, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(54, 25, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(55, 25, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(56, 26, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(57, 26, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(58, 27, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(59, 27, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(60, 28, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(61, 28, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(62, 29, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(63, 29, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(64, 30, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(65, 30, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(66, 31, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(67, 31, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(68, 32, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(69, 32, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(70, 33, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(71, 33, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(72, 34, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(73, 34, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(74, 35, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(75, 35, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(76, 36, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(77, 36, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(78, 37, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(79, 37, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(80, 38, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(81, 38, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(82, 39, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(83, 39, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(84, 40, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(85, 40, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(86, 41, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(87, 41, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(88, 42, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(89, 42, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(90, 43, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(91, 43, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(92, 44, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(93, 44, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(94, 45, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(95, 45, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(96, 46, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(97, 46, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(98, 47, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(99, 47, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(100, 48, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(101, 48, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(102, 49, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(103, 49, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(104, 50, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(105, 50, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(106, 51, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(107, 51, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(108, 52, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(109, 52, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(110, 53, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(111, 53, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(112, 54, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(113, 54, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(114, 55, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(115, 55, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(116, 56, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(117, 56, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(118, 57, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(119, 57, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(120, 58, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(121, 58, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(122, 59, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(123, 59, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(124, 60, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(125, 60, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(126, 61, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(127, 61, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(128, 62, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(129, 62, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(130, 63, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(131, 63, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(132, 64, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(133, 64, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(134, 65, 'iphone8plus.png', 'Iphone 8 Plus 64Gb', 10000000, 1, 10000000),
+(135, 65, 'iphone6splus.png', 'Iphone 6s Plus 64GB ', 2500000, 1, 2500000),
+(136, 65, 'Oppo Find X3 Pro 5G.jpg', 'Oppo Find X3 Pro 5G', 21910000, 1, 21910000);
 
 -- --------------------------------------------------------
 
@@ -92,8 +205,62 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `code`, `created_at`, `cus_name`, `cus_email`, `cus_phone`, `cus_address`, `message`) VALUES
-(1, 25694, '2021-01-01 06:46:36', 'Nguyen Huu Thang', 'nguyenhuuthang1609@gmail.com', '0844370255', '53, Võ Văn Ngân, Linh Chiểu, Thủ Đức, Hồ Chí Minh', 'Giao Nhanh Trong Vao 7 Ngay'),
-(3, 76794, '2021-01-04 00:02:57', 'Nguyen Huu Thang', 'nguyenhuuthang12c8@gmail.com', '0844370255', '53 vo van ngan', 'giao nhanh');
+(67, 25121, '2021-06-19 00:21:44', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(10, 63484, '2021-06-15 03:54:12', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '0342964072', '47/17 truong minh ky phuong 13 quan go vap', '123'),
+(11, 63163, '2021-06-15 03:54:46', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '0342964072', '47/17 truong minh ky phuong 13 quan go vap', '123'),
+(12, 54212, '2021-06-15 03:58:08', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '0342964072', '47/17 truong minh ky phuong 13 quan go vap', '123'),
+(14, 1036, '2021-06-15 04:01:12', 'a', 'alo@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap, 47/17 truong minh ky phuong 13 quan go vap', 'a'),
+(15, 84157, '2021-06-15 04:02:40', 'a', 'alo@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap, 47/17 truong minh ky phuong 13 quan go vap', 'a'),
+(16, 85998, '2021-06-15 04:03:38', 'a', 'alo@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap, 47/17 truong minh ky phuong 13 quan go vap', 'a'),
+(17, 34005, '2021-06-15 04:03:50', 'a', 'alo@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap, 47/17 truong minh ky phuong 13 quan go vap', 'a'),
+(18, 92368, '2021-06-15 04:05:13', 'a', 'alo@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap, 47/17 truong minh ky phuong 13 quan go vap', 'a'),
+(19, 22560, '2021-06-15 04:05:42', 'a', 'alo@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap, 47/17 truong minh ky phuong 13 quan go vap', 'a'),
+(20, 17396, '2021-06-15 04:06:20', 'a', 'alo@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap, 47/17 truong minh ky phuong 13 quan go vap', 'a'),
+(21, 74519, '2021-06-15 04:07:04', 'a', 'alo@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap, 47/17 truong minh ky phuong 13 quan go vap', 'a'),
+(22, 16369, '2021-06-15 04:13:38', 'a', 'alo@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap, 47/17 truong minh ky phuong 13 quan go vap', 'a'),
+(23, 76555, '2021-06-15 04:13:51', '', '', '', '', ''),
+(24, 22439, '2021-06-15 04:14:39', '', '', '', '', ''),
+(25, 73930, '2021-06-15 04:14:39', '', '', '', '', ''),
+(26, 14296, '2021-06-15 04:14:46', '', '', '', '', ''),
+(27, 15883, '2021-06-15 04:14:56', 'ád', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(28, 13226, '2021-06-15 04:16:24', 'ádádasdasdsda', 'lanhoxga@gmail.com', '11111', '47/17 truong minh ky phuong 13 quan go vap', '111111'),
+(29, 43697, '2021-06-15 04:16:53', 'ádádasdasdsda', 'lanhoxga@gmail.com', '11111', '47/17 truong minh ky phuong 13 quan go vap', '111111'),
+(30, 72836, '2021-06-15 04:16:56', 'ádádasdasdsda', 'lanhoxga@gmail.com', '11111', '47/17 truong minh ky phuong 13 quan go vap', '111111'),
+(31, 78193, '2021-06-15 04:19:59', 'abc', 'abc@gmail.com', '123', '1', '1'),
+(32, 16052, '2021-06-15 04:21:10', 'ae', 'ae@gmail.com', '1', '1', '1'),
+(33, 86487, '2021-06-15 04:21:47', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(34, 11918, '2021-06-15 04:22:45', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(35, 22085, '2021-06-15 04:23:17', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(36, 5349, '2021-06-15 04:28:21', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(37, 77111, '2021-06-15 04:29:21', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(38, 92650, '2021-06-15 04:31:29', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(39, 5395, '2021-06-15 04:33:52', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(40, 33947, '2021-06-15 04:34:07', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(41, 77395, '2021-06-15 04:35:58', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(42, 91428, '2021-06-15 04:37:12', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(43, 33708, '2021-06-15 04:37:51', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(44, 88658, '2021-06-15 04:38:12', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(45, 82731, '2021-06-15 04:38:25', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(46, 43233, '2021-06-15 04:38:37', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(47, 33956, '2021-06-15 04:39:12', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(48, 11556, '2021-06-15 04:39:19', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(49, 1745, '2021-06-15 04:39:38', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(50, 10623, '2021-06-15 04:40:23', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(51, 50831, '2021-06-15 04:40:50', '', '', '', '', ''),
+(52, 30266, '2021-06-15 04:41:53', '', '', '', '', ''),
+(53, 41966, '2021-06-15 04:42:06', '', '', '', '', ''),
+(54, 8347, '2021-06-15 04:42:23', '', '', '', '', ''),
+(55, 44406, '2021-06-15 04:42:33', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(56, 83938, '2021-06-15 04:42:57', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(57, 64939, '2021-06-15 04:43:11', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(58, 82999, '2021-06-15 04:43:23', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(59, 75024, '2021-06-15 04:43:31', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(60, 61027, '2021-06-15 04:43:45', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(61, 62500, '2021-06-15 04:44:11', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(62, 72940, '2021-06-15 04:44:20', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(63, 17159, '2021-06-15 04:44:37', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(64, 5463, '2021-06-15 04:45:19', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1'),
+(65, 61026, '2021-06-17 10:07:30', 'Nguyễn Cao Thái', 'lanhoxga@gmail.com', '1', '47/17 truong minh ky phuong 13 quan go vap', '1');
 
 -- --------------------------------------------------------
 
@@ -146,7 +313,29 @@ INSERT INTO `products` (`id`, `name`, `manu_id`, `type_id`, `price`, `pro_image`
 (39, 'Điện thoại Samsung Galaxy S20 FE', 4, 1, 15990000, 'ss4.png', 'Trong sự kiện Samsung Unpacked đặc biệt vừa qua, Samsung đã giới thiệu đến người dùng thành viên mới của dòng điện thoại thông minh S20 Series đó chính là Samsung Galaxy S20 FE. Đây là mẫu flagship cao cấp quy tụ nhiều tính năng mà Samfan yêu thích, hứa hẹn sẽ mang lại trải nghiệm cao cấp của dòng Galaxy S với mức giá dễ tiếp cận hơn.', 0, '2020-12-03 02:58:47'),
 (40, 'Điện thoại Samsung Galaxy A50s', 4, 1, 6990000, 'ss5.png', 'Nằm trong sứ mệnh nâng cao khả năng cạnh tranh với các smartphone đến từ nhiều nhà sản xuất Trung Quốc, mới đây Samsung tiếp tục giới thiệu phiên bản Samsung Galaxy A50s với nhiều tính năng mà trước đây chỉ xuất hiện trên dòng cao cấp.', 1, '2020-12-03 02:58:47'),
 (53, 'Iphone 8 Plus 64Gb', 1, 1, 10000000, 'iphone8plus.png', 'iPhone 7 32GB vẫn mang trên mình thiết kế quen thuộc của từ thời iPhone 6 nhưng có nhiều thay đổi lớn về phần cứng, dàn loa stereo và cấu hình cực mạnh.', 1, '2021-01-03 17:00:00'),
-(54, 'Iphone 7 Plus 64Gb', 1, 1, 8600000, 'iphone7plus.png', 'iPhone 7 Plus 64GB vẫn mang trên mình thiết kế quen thuộc của từ thời iPhone 6 nhưng có nhiều thay đổi lớn về phần cứng, dàn loa stereo và cấu hình cực mạnh.', 1, '2020-12-23 17:00:00');
+(54, 'Iphone 7 Plus 64Gb', 1, 1, 8600000, 'iphone7plus.png', 'iPhone 7 Plus 64GB vẫn mang trên mình thiết kế quen thuộc của từ thời iPhone 6 nhưng có nhiều thay đổi lớn về phần cứng, dàn loa stereo và cấu hình cực mạnh.', 1, '2020-12-23 17:00:00'),
+(59, 'ViVo V21 5G', 11, 1, 9500000, 'vivo-v21-5g-xanh-den-600x600.jpg', 'Chụp selfie bùng nổ trong đêm, thiết kế mới hiện đại đón đầu xu hướng, cùng với đó là tốc độ kết nối mạng 5G hàng đầu, tất cả những tính năng ấn tượng này đều có trong Vivo V21 5G mẫu điện thoại cận cao cấp đến từ Vivo.', 1, '2021-06-11 17:00:00'),
+(60, 'ViVo V20', 11, 1, 6210000, 'vivov20update.jpg', 'Vivo tung ra chiếc điện thoại Vivo V20 (2021) là phiên bản nâng cấp của Vivo V20 ra mắt trước đó. Chiếc smartphone này được nâng cấp lên bộ xử lý mạnh mẽ hơn mà vẫn giữ được thiết kế siêu mỏng và cụm camera chụp đẹp đáng kinh ngạc.', 1, '2021-06-11 17:00:00'),
+(61, 'ViVo Y72 5G', 11, 1, 6420000, 'vivoy72.jpg', 'Vivo Y72 5G mẫu smartphone 5G của Vivo, máy sở hữu một màn hình lớn, hiệu năng mạnh mẽ, cụm 3 camera sắc nét và thời lượng pin ấn tượng, máy đáp ứng tốt hầu hết nhu cầu sử dụng mà người dùng cần.', 1, '2021-06-11 17:00:00'),
+(62, 'ViVo Y20', 11, 1, 3420000, 'vivoy20.jpg', 'Vivo Y72 5G mẫu smartphone 5G của Vivo, máy sở hữu một màn hình lớn, hiệu năng mạnh mẽ, cụm 3 camera sắc nét và thời lượng pin ấn tượng, máy đáp ứng tốt hầu hết nhu cầu sử dụng mà người dùng cần.', 1, '2021-06-11 17:00:00'),
+(63, 'ViVo Y51', 11, 1, 4850000, 'vivoy51.jpg', 'Vivo đã mang chiếc điện thoại Vivo Y51 một lần nữa quay trở lại với người dùng trong một thiết kế hoàn toàn mới, nâng cấp từ công nghệ màn hình, cụm camera đến hệ điều hành với tên gọi Vivo Y51 (2020).', 1, '2021-06-11 17:00:00'),
+(64, 'Oppo Find X3 Pro 5G', 12, 1, 21910000, 'Oppo Find X3 Pro 5G.jpg', 'OPPO đã làm khuynh đảo thị trường smartphone khi cho ra đời chiếc điện thoại OPPO Find X3 Pro 5G. Đây là một sản phẩm có thiết kế độc đáo, sở hữu cụm camera khủng, cấu hình thuộc top đầu trong thế giới Android.', 1, '2021-06-11 17:00:00'),
+(65, 'Oppo Reno5 Marvel', 12, 1, 9690000, 'Oppo Reno5 Marvel.jpg', 'Lấy cảm hứng từ những nhân vật siêu anh hùng Avengers', 1, '2021-06-11 17:00:00'),
+(66, 'Oppo Reno5', 12, 1, 6700000, 'Oppo Reno5.jpg', 'OPPO Reno5 là sự kết hợp đầy ấn tượng giữa hiệu năng và thiết kế, mang đến cho người dùng một chiếc điện thoại tích hợp nhiều công nghệ camera, sạc pin hàng đầu của OPPO trong một mức giá tầm trung.', 1, '2021-06-11 17:00:00'),
+(67, 'Asus-Zenbook-ux482eg-i5 (ka166t)', 13, 2, 34990000, 'Asus-Zenbook-ux482eg-i5 (ka166t).jpg', 'Laptop Asus ZenBook Duo UX482EG i5 (KA166T) mang đến thiết kế đột phá với màn hình đôi độc đáo cùng cấu hình mạnh mẽ, hiệu suất đồ họa cao cực phù hợp với giới doanh nhân và người làm công việc sáng tạo.', 1, '2021-06-11 17:00:00'),
+(68, 'Asus-Ruf-Gaming-fx516pm i7 (hn023t)', 13, 2, 32000000, 'Asus-Ruf-Gaming-fx516pm i7 (hn023t).jpg', 'Laptop Asus TUF Gaming FX516PM i7 (HN023T) sở hữu dòng chip CPU Intel Core i7 thế hệ 11 mạnh mẽ mang đến hiệu năng ấn tượng cho nhu cầu thiết kế đồ họa, làm việc văn phòng và cả chiến game cực chất.', 1, '2021-06-11 17:00:00'),
+(69, 'Asus-Zenbook-ux425ea-i5-(ki429t)', 13, 2, 24000000, 'Asus-Zenbook-ux425ea-i5-(ki429t).jpg', 'Laptop Asus Zenbook UX425EA (KI429T) sở hữu vẻ ngoài tinh tế với độ bền chuẩn quân đội cùng CPU Intel thế hệ 11 hiện đại đem đến hiệu năng tối ưu và vượt trội, xử lý nhanh gọn mọi tác vụ.', 1, '2021-06-11 17:00:00'),
+(70, 'Acer-Nitro-5-An515-45-r3sm-r5-(nhqbmsv)', 14, 2, 22290000, 'Acer-Nitro-5-An515-45-r3sm-r5-(nhqbmsv).jpg', 'Laptop Acer Nitro 5 AN515 45 R3SM R5 (NH.QBMSV.005) có vẻ ngoài hình hầm hố đặc trưng của dòng laptop gaming, cấu hình mạnh mẽ chạy mượt các tựa game được các game thủ ưa thích với con chip AMD Ryzen 5 và card đồ họa NVIDIA GeForce GTX 1650 4GB.', 1, '2021-06-11 17:00:00'),
+(71, 'Acer-Nitro-An515-55-72p6-i7-(nhqbnsv)', 14, 2, 25490000, 'Acer-Nitro-An515-55-72p6-i7-(nhqbnsv).jpg', 'Acer Nitro 5 A515 55 72R2 i7 (NH.Q7NSV.005) là chiếc máy tính xách tay gaming đa năng vừa phù hợp với nhu cầu chơi game, vừa hỗ trợ công việc đồ họa chuyên nghiệp. Với thiết kế đầy cá tính kết hợp với một cấu hình đáng gờm, Acer Nitro đem đến những giây phút chiến game hoàn hảo.', 1, '2021-06-11 17:00:00'),
+(72, 'Xiaomi mi 11', 15, 1, 17250000, 'xiaomi-mi-11-xanhduong-600x600-600x600.jpg', 'Xiaomi Mi 11 một siêu phẩm đến từ Xiaomi, máy cho trải nghiệm hiệu năng hàng đầu với vi xử lý Qualcomm Snapdragon 888, cùng loạt công nghệ đỉnh cao, khiến bất kỳ ai cũng sẽ choáng ngợp về smartphone này.', 1, '2021-06-11 17:00:00'),
+(73, 'Xiaomi Power Bank 3 Ultra Compact', 15, 5, 350000, 'polymer-10000mah-x.jpg', 'Pin sạc dự phòng Polymer 10.000mAh Type C Xiaomi Power Bank 3 Ultra Compact đen gần như chỉ bằng 1 tấm thẻ ngân hàng, trọng lượng 200 gram, không chiếm diện tích, cho bạn dễ dàng bỏ vào túi quần, balo, túi xách và mang theo bên mình khi cần. Bề mặt phủ màu đen tuyền phong cách, có đường kẻ dọc bám tay, cầm nắm chắc chắn hơn.', 1, '2021-06-11 17:00:00'),
+(74, 'Xiaomi Power Bank 3', 15, 5, 250000, '226703-600x600.jpg', 'Pin sạc dự phòng Polymer 10.000mAh Xiaomi Mi 18W Fast Charge Power Bank 3 có thiết kế với vỏ kim loại nguyên khối gọn gàng giúp bạn có thể cầm vừa tay, khó rơi rớt. ', 1, '2021-06-11 17:00:00'),
+(75, 'Xiaomi Mi Power Bank', 15, 5, 320000, 'sac-du-phong-polymer-10000mah-khong-day-xiaomi-avatar-1-600x600.jpg', 'Pin sạc dự phòng Xiaomi Mi Essential thiết kế dạng hình chữ nhật quen thuộc với lớp vỏ chắc chắn và có độ nhám giúp tăng ma sát, chống trơn trượt khi cầm nắm.', 1, '2021-06-11 17:00:00'),
+(76, 'Ipad Air 4', 1, 6, 16100000, 'ipad-air-4-wifi-64gb-2020-xanhduong-600x600-600x600.jpg', 'Apple đã trình làng máy tính bảng iPad Air 4 Wifi 64 GB (2020). Đây là thiết bị đầu tiên của hãng được trang bị chip A14 Bionic - chip di động mạnh nhất của Apple (năm 2020). Và có màn lột xác nhờ thiết kế được thừa hưởng từ iPad Pro với viền màn hình mỏng bo cong quanh máy.', 1, '2021-06-11 17:00:00'),
+(77, 'Ipad Pro M1', 1, 6, 33950000, 'ipad-pro-2021-129-inch-gray-600x600.jpg', 'Ipad Pro M1 2021 Tốc độ khủng, đồ họa cao tuyệt vời, và thời hạn pin cả ngày', 1, '2021-06-11 17:00:00'),
+(78, 'Samsung Galaxy Tab S7', 4, 6, 29000000, 'samsung-galaxy-tab-s7-gold-new-600x600.jpg', 'Samsung Galaxy Tab S7 chiếc máy tính bảng có thiết kế tuyệt đẹp, màn hình 120 Hz siêu mượt, camera kép ấn tượng, bút S Pen cùng một hiệu năng mạnh mẽ thuộc top đầu thị trường máy tính bảng Android.', 1, '2021-06-11 17:00:00'),
+(79, 'Galaxy Buds Pro', 4, 3, 3990000, 'bluetooth-true-wireless-galaxy-buds-pro-bac-ava-600x600.jpg', 'Thiết kế sang trọng, thời thượng cùng hộp sạc đồng nhất màu sắc đi kèm', 1, '2021-06-11 17:00:00'),
+(80, 'Xiaomi Earsphone 2', 15, 3, 2590000, '226701-600x600.jpg', 'Kiểu dáng nhỏ gọn, là người bạn đồng hành trên mọi nẻo đường', 1, '2021-06-11 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -169,7 +358,7 @@ INSERT INTO `protypes` (`type_id`, `type_name`) VALUES
 (4, 'SmartWatch'),
 (3, 'Phone'),
 (5, 'Sạc '),
-(14, 'nhom 9');
+(6, 'Tablet');
 
 -- --------------------------------------------------------
 
@@ -192,7 +381,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `ho_ten`, `sdt`, `email`, `user_name`, `password`, `role`) VALUES
-(14, 'Tiêu Hoàng Tuấn', '0335945855', 'tieuhoangtuan822001@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'quan ly');
+(14, 'Tiêu Hoàng Tuấn', '0335945855', 'tieuhoangtuan822001@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'quan ly'),
+(15, ' Nguyễn Cao Thái', '0342964072', 'lanhoxga@gmail.com', 'thai', '1aafcfcd9efdd2e7ac43e80ce77bba79', 'khach hang'),
+(18, 'caothai', '0342964072', 'lanhoxga@gmail.com', 'caothai', '14d541a04da9179626f7953b477e61a7', 'Khach Hang');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -242,37 +433,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `manufactures`
 --
 ALTER TABLE `manufactures`
-  MODIFY `manu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `manu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `orderdetail`
 --
 ALTER TABLE `orderdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT cho bảng `protypes`
 --
 ALTER TABLE `protypes`
-  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
