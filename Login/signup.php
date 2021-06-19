@@ -10,6 +10,7 @@ if (isset($_POST['signup'])) {
     $password = md5($_POST['password']);
 
 
+
     $sql = "INSERT INTO users(ho_ten,sdt,email,user_name,password) VALUES( '$hoten','$sdt','$email', '$username','$password')";
     mysqli_query($conn, $sql);
 }
@@ -33,6 +34,9 @@ if (isset($_POST['signup'])) {
     <div class="hero">
         <div class="form-box">
             <div class="form-login">
+            <?php
+echo "đăng kí thành công!";
+                ?>
                 <h4>SIGN UP</h4>
             </div>
             <form id="login" class="form-input" action="signup.php" method="POST">
@@ -41,7 +45,10 @@ if (isset($_POST['signup'])) {
                 <input type="email" name="email" class="input-field" placeholder="Email" required>
                 <input type="text" name="name" class="input-field" placeholder="Username" required>
                 <input type="password" name="password" class="input-field" placeholder="Enter password" required>
-                <button type="submit" name="signup" class="submit-btn">Sign up</button>
+               
+                <button type="submit" name="signup" class="submit-btn" style="float:left">ĐĂNG KÍ</button>
+                <button type="submit" name="signup" class="submit-btn" style="float:right"><a href="login.php">Sign In</a></button>
+
 
             </form>
         </div>
